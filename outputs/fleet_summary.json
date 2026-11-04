@@ -1,0 +1,25 @@
+{
+  "observed_hourly_demand_p95": 563.0999999999985,
+  "observed_hourly_demand_p99": 782.2200000000012,
+  "observed_peak_window_mean_hourly_rentals": 331.58484085184335,
+  "formula": "fleet = hourly demand \u00d7 assumed trip duration (hours) \u00d7 spatial buffer \u00f7 (1 - maintenance share)",
+  "assumptions": {
+    "trip_duration_hours": [
+      0.4,
+      0.6,
+      0.8
+    ],
+    "spatial_buffer": [
+      1.2,
+      1.5,
+      2.0
+    ],
+    "maintenance_share": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "illustrative_fleet_size": 2000
+  },
+  "warning": "Scenario arithmetic only. Demand counts are completed rentals, not concurrent bikes in use. The formula is a simplified illustrative scenario, not a validated fleet requirement. 2,000 bikes is fictional per supplied reference."
+}

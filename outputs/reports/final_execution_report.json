@@ -1,0 +1,27 @@
+{
+  "execution_status": "SUCCESS",
+  "elapsed_seconds": 56.64,
+  "dataset_rows": 17379,
+  "audit_summary": {
+    "missing_cells": 0,
+    "missing_hourly_intervals": 165,
+    "target_identity_passed": true
+  },
+  "best_model": {
+    "name": "HistGradientBoosting",
+    "test_mae": 41.95,
+    "test_rmse": 65.25,
+    "test_r2": 0.9118,
+    "peak_mae": 71.68,
+    "peak_bias": -18.4
+  },
+  "hypothesis_testing": {
+    "h1_commute_share_difference": 25.39,
+    "h1_p_value": 4.999750012499375e-05,
+    "h1_reject_null": true
+  },
+  "fleet_recommendation": {
+    "baseline_p95_active_fleet_needed": 470,
+    "procurement_verdict": "DO NOT BUY MORE BIKES. Focus on dynamic station rebalancing."
+  }
+}

@@ -1,0 +1,193 @@
+demand_scenario,hourly_demand,trip_duration_hours,spatial_buffer,maintenance_share,estimated_fleet_needed,fleet_2000_surplus_deficit
+Low Demand (Median / P50),142.0,0.4,1.2,0.05,72,1928
+Low Demand (Median / P50),142.0,0.4,1.2,0.1,76,1924
+Low Demand (Median / P50),142.0,0.4,1.2,0.15,81,1919
+Low Demand (Median / P50),142.0,0.4,1.5,0.05,90,1910
+Low Demand (Median / P50),142.0,0.4,1.5,0.1,95,1905
+Low Demand (Median / P50),142.0,0.4,1.5,0.15,101,1899
+Low Demand (Median / P50),142.0,0.4,1.8,0.05,108,1892
+Low Demand (Median / P50),142.0,0.4,1.8,0.1,114,1886
+Low Demand (Median / P50),142.0,0.4,1.8,0.15,121,1879
+Low Demand (Median / P50),142.0,0.4,2.0,0.05,120,1880
+Low Demand (Median / P50),142.0,0.4,2.0,0.1,127,1873
+Low Demand (Median / P50),142.0,0.4,2.0,0.15,134,1866
+Low Demand (Median / P50),142.0,0.5,1.2,0.05,90,1910
+Low Demand (Median / P50),142.0,0.5,1.2,0.1,95,1905
+Low Demand (Median / P50),142.0,0.5,1.2,0.15,101,1899
+Low Demand (Median / P50),142.0,0.5,1.5,0.05,113,1887
+Low Demand (Median / P50),142.0,0.5,1.5,0.1,119,1881
+Low Demand (Median / P50),142.0,0.5,1.5,0.15,126,1874
+Low Demand (Median / P50),142.0,0.5,1.8,0.05,135,1865
+Low Demand (Median / P50),142.0,0.5,1.8,0.1,142,1858
+Low Demand (Median / P50),142.0,0.5,1.8,0.15,151,1849
+Low Demand (Median / P50),142.0,0.5,2.0,0.05,150,1850
+Low Demand (Median / P50),142.0,0.5,2.0,0.1,158,1842
+Low Demand (Median / P50),142.0,0.5,2.0,0.15,168,1832
+Low Demand (Median / P50),142.0,0.6,1.2,0.05,108,1892
+Low Demand (Median / P50),142.0,0.6,1.2,0.1,114,1886
+Low Demand (Median / P50),142.0,0.6,1.2,0.15,121,1879
+Low Demand (Median / P50),142.0,0.6,1.5,0.05,135,1865
+Low Demand (Median / P50),142.0,0.6,1.5,0.1,142,1858
+Low Demand (Median / P50),142.0,0.6,1.5,0.15,151,1849
+Low Demand (Median / P50),142.0,0.6,1.8,0.05,162,1838
+Low Demand (Median / P50),142.0,0.6,1.8,0.1,171,1829
+Low Demand (Median / P50),142.0,0.6,1.8,0.15,181,1819
+Low Demand (Median / P50),142.0,0.6,2.0,0.05,180,1820
+Low Demand (Median / P50),142.0,0.6,2.0,0.1,190,1810
+Low Demand (Median / P50),142.0,0.6,2.0,0.15,201,1799
+Low Demand (Median / P50),142.0,0.8,1.2,0.05,144,1856
+Low Demand (Median / P50),142.0,0.8,1.2,0.1,152,1848
+Low Demand (Median / P50),142.0,0.8,1.2,0.15,161,1839
+Low Demand (Median / P50),142.0,0.8,1.5,0.05,180,1820
+Low Demand (Median / P50),142.0,0.8,1.5,0.1,190,1810
+Low Demand (Median / P50),142.0,0.8,1.5,0.15,201,1799
+Low Demand (Median / P50),142.0,0.8,1.8,0.05,216,1784
+Low Demand (Median / P50),142.0,0.8,1.8,0.1,228,1772
+Low Demand (Median / P50),142.0,0.8,1.8,0.15,241,1759
+Low Demand (Median / P50),142.0,0.8,2.0,0.05,240,1760
+Low Demand (Median / P50),142.0,0.8,2.0,0.1,253,1747
+Low Demand (Median / P50),142.0,0.8,2.0,0.15,268,1732
+Expected Demand (Commute Peak Mean),331.6,0.4,1.2,0.05,168,1832
+Expected Demand (Commute Peak Mean),331.6,0.4,1.2,0.1,177,1823
+Expected Demand (Commute Peak Mean),331.6,0.4,1.2,0.15,188,1812
+Expected Demand (Commute Peak Mean),331.6,0.4,1.5,0.05,210,1790
+Expected Demand (Commute Peak Mean),331.6,0.4,1.5,0.1,222,1778
+Expected Demand (Commute Peak Mean),331.6,0.4,1.5,0.15,235,1765
+Expected Demand (Commute Peak Mean),331.6,0.4,1.8,0.05,252,1748
+Expected Demand (Commute Peak Mean),331.6,0.4,1.8,0.1,266,1734
+Expected Demand (Commute Peak Mean),331.6,0.4,1.8,0.15,281,1719
+Expected Demand (Commute Peak Mean),331.6,0.4,2.0,0.05,280,1720
+Expected Demand (Commute Peak Mean),331.6,0.4,2.0,0.1,295,1705
+Expected Demand (Commute Peak Mean),331.6,0.4,2.0,0.15,313,1687
+Expected Demand (Commute Peak Mean),331.6,0.5,1.2,0.05,210,1790
+Expected Demand (Commute Peak Mean),331.6,0.5,1.2,0.1,222,1778
+Expected Demand (Commute Peak Mean),331.6,0.5,1.2,0.15,235,1765
+Expected Demand (Commute Peak Mean),331.6,0.5,1.5,0.05,262,1738
+Expected Demand (Commute Peak Mean),331.6,0.5,1.5,0.1,277,1723
+Expected Demand (Commute Peak Mean),331.6,0.5,1.5,0.15,293,1707
+Expected Demand (Commute Peak Mean),331.6,0.5,1.8,0.05,315,1685
+Expected Demand (Commute Peak Mean),331.6,0.5,1.8,0.1,332,1668
+Expected Demand (Commute Peak Mean),331.6,0.5,1.8,0.15,352,1648
+Expected Demand (Commute Peak Mean),331.6,0.5,2.0,0.05,350,1650
+Expected Demand (Commute Peak Mean),331.6,0.5,2.0,0.1,369,1631
+Expected Demand (Commute Peak Mean),331.6,0.5,2.0,0.15,391,1609
+Expected Demand (Commute Peak Mean),331.6,0.6,1.2,0.05,252,1748
+Expected Demand (Commute Peak Mean),331.6,0.6,1.2,0.1,266,1734
+Expected Demand (Commute Peak Mean),331.6,0.6,1.2,0.15,281,1719
+Expected Demand (Commute Peak Mean),331.6,0.6,1.5,0.05,315,1685
+Expected Demand (Commute Peak Mean),331.6,0.6,1.5,0.1,332,1668
+Expected Demand (Commute Peak Mean),331.6,0.6,1.5,0.15,352,1648
+Expected Demand (Commute Peak Mean),331.6,0.6,1.8,0.05,377,1623
+Expected Demand (Commute Peak Mean),331.6,0.6,1.8,0.1,398,1602
+Expected Demand (Commute Peak Mean),331.6,0.6,1.8,0.15,422,1578
+Expected Demand (Commute Peak Mean),331.6,0.6,2.0,0.05,419,1581
+Expected Demand (Commute Peak Mean),331.6,0.6,2.0,0.1,443,1557
+Expected Demand (Commute Peak Mean),331.6,0.6,2.0,0.15,469,1531
+Expected Demand (Commute Peak Mean),331.6,0.8,1.2,0.05,336,1664
+Expected Demand (Commute Peak Mean),331.6,0.8,1.2,0.1,354,1646
+Expected Demand (Commute Peak Mean),331.6,0.8,1.2,0.15,375,1625
+Expected Demand (Commute Peak Mean),331.6,0.8,1.5,0.05,419,1581
+Expected Demand (Commute Peak Mean),331.6,0.8,1.5,0.1,443,1557
+Expected Demand (Commute Peak Mean),331.6,0.8,1.5,0.15,469,1531
+Expected Demand (Commute Peak Mean),331.6,0.8,1.8,0.05,503,1497
+Expected Demand (Commute Peak Mean),331.6,0.8,1.8,0.1,531,1469
+Expected Demand (Commute Peak Mean),331.6,0.8,1.8,0.15,562,1438
+Expected Demand (Commute Peak Mean),331.6,0.8,2.0,0.05,559,1441
+Expected Demand (Commute Peak Mean),331.6,0.8,2.0,0.1,590,1410
+Expected Demand (Commute Peak Mean),331.6,0.8,2.0,0.15,625,1375
+Conservative Planning (P90),451.2,0.4,1.2,0.05,228,1772
+Conservative Planning (P90),451.2,0.4,1.2,0.1,241,1759
+Conservative Planning (P90),451.2,0.4,1.2,0.15,255,1745
+Conservative Planning (P90),451.2,0.4,1.5,0.05,285,1715
+Conservative Planning (P90),451.2,0.4,1.5,0.1,301,1699
+Conservative Planning (P90),451.2,0.4,1.5,0.15,319,1681
+Conservative Planning (P90),451.2,0.4,1.8,0.05,342,1658
+Conservative Planning (P90),451.2,0.4,1.8,0.1,361,1639
+Conservative Planning (P90),451.2,0.4,1.8,0.15,383,1617
+Conservative Planning (P90),451.2,0.4,2.0,0.05,380,1620
+Conservative Planning (P90),451.2,0.4,2.0,0.1,402,1598
+Conservative Planning (P90),451.2,0.4,2.0,0.15,425,1575
+Conservative Planning (P90),451.2,0.5,1.2,0.05,285,1715
+Conservative Planning (P90),451.2,0.5,1.2,0.1,301,1699
+Conservative Planning (P90),451.2,0.5,1.2,0.15,319,1681
+Conservative Planning (P90),451.2,0.5,1.5,0.05,357,1643
+Conservative Planning (P90),451.2,0.5,1.5,0.1,377,1623
+Conservative Planning (P90),451.2,0.5,1.5,0.15,399,1601
+Conservative Planning (P90),451.2,0.5,1.8,0.05,428,1572
+Conservative Planning (P90),451.2,0.5,1.8,0.1,452,1548
+Conservative Planning (P90),451.2,0.5,1.8,0.15,478,1522
+Conservative Planning (P90),451.2,0.5,2.0,0.05,475,1525
+Conservative Planning (P90),451.2,0.5,2.0,0.1,502,1498
+Conservative Planning (P90),451.2,0.5,2.0,0.15,531,1469
+Conservative Planning (P90),451.2,0.6,1.2,0.05,342,1658
+Conservative Planning (P90),451.2,0.6,1.2,0.1,361,1639
+Conservative Planning (P90),451.2,0.6,1.2,0.15,383,1617
+Conservative Planning (P90),451.2,0.6,1.5,0.05,428,1572
+Conservative Planning (P90),451.2,0.6,1.5,0.1,452,1548
+Conservative Planning (P90),451.2,0.6,1.5,0.15,478,1522
+Conservative Planning (P90),451.2,0.6,1.8,0.05,513,1487
+Conservative Planning (P90),451.2,0.6,1.8,0.1,542,1458
+Conservative Planning (P90),451.2,0.6,1.8,0.15,574,1426
+Conservative Planning (P90),451.2,0.6,2.0,0.05,570,1430
+Conservative Planning (P90),451.2,0.6,2.0,0.1,602,1398
+Conservative Planning (P90),451.2,0.6,2.0,0.15,637,1363
+Conservative Planning (P90),451.2,0.8,1.2,0.05,456,1544
+Conservative Planning (P90),451.2,0.8,1.2,0.1,482,1518
+Conservative Planning (P90),451.2,0.8,1.2,0.15,510,1490
+Conservative Planning (P90),451.2,0.8,1.5,0.05,570,1430
+Conservative Planning (P90),451.2,0.8,1.5,0.1,602,1398
+Conservative Planning (P90),451.2,0.8,1.5,0.15,637,1363
+Conservative Planning (P90),451.2,0.8,1.8,0.05,684,1316
+Conservative Planning (P90),451.2,0.8,1.8,0.1,722,1278
+Conservative Planning (P90),451.2,0.8,1.8,0.15,765,1235
+Conservative Planning (P90),451.2,0.8,2.0,0.05,760,1240
+Conservative Planning (P90),451.2,0.8,2.0,0.1,803,1197
+Conservative Planning (P90),451.2,0.8,2.0,0.15,850,1150
+High Stress (P95 Observed),563.1,0.4,1.2,0.05,285,1715
+High Stress (P95 Observed),563.1,0.4,1.2,0.1,301,1699
+High Stress (P95 Observed),563.1,0.4,1.2,0.15,318,1682
+High Stress (P95 Observed),563.1,0.4,1.5,0.05,356,1644
+High Stress (P95 Observed),563.1,0.4,1.5,0.1,376,1624
+High Stress (P95 Observed),563.1,0.4,1.5,0.15,398,1602
+High Stress (P95 Observed),563.1,0.4,1.8,0.05,427,1573
+High Stress (P95 Observed),563.1,0.4,1.8,0.1,451,1549
+High Stress (P95 Observed),563.1,0.4,1.8,0.15,477,1523
+High Stress (P95 Observed),563.1,0.4,2.0,0.05,475,1525
+High Stress (P95 Observed),563.1,0.4,2.0,0.1,501,1499
+High Stress (P95 Observed),563.1,0.4,2.0,0.15,530,1470
+High Stress (P95 Observed),563.1,0.5,1.2,0.05,356,1644
+High Stress (P95 Observed),563.1,0.5,1.2,0.1,376,1624
+High Stress (P95 Observed),563.1,0.5,1.2,0.15,398,1602
+High Stress (P95 Observed),563.1,0.5,1.5,0.05,445,1555
+High Stress (P95 Observed),563.1,0.5,1.5,0.1,470,1530
+High Stress (P95 Observed),563.1,0.5,1.5,0.15,497,1503
+High Stress (P95 Observed),563.1,0.5,1.8,0.05,534,1466
+High Stress (P95 Observed),563.1,0.5,1.8,0.1,564,1436
+High Stress (P95 Observed),563.1,0.5,1.8,0.15,597,1403
+High Stress (P95 Observed),563.1,0.5,2.0,0.05,593,1407
+High Stress (P95 Observed),563.1,0.5,2.0,0.1,626,1374
+High Stress (P95 Observed),563.1,0.5,2.0,0.15,663,1337
+High Stress (P95 Observed),563.1,0.6,1.2,0.05,427,1573
+High Stress (P95 Observed),563.1,0.6,1.2,0.1,451,1549
+High Stress (P95 Observed),563.1,0.6,1.2,0.15,477,1523
+High Stress (P95 Observed),563.1,0.6,1.5,0.05,534,1466
+High Stress (P95 Observed),563.1,0.6,1.5,0.1,564,1436
+High Stress (P95 Observed),563.1,0.6,1.5,0.15,597,1403
+High Stress (P95 Observed),563.1,0.6,1.8,0.05,641,1359
+High Stress (P95 Observed),563.1,0.6,1.8,0.1,676,1324
+High Stress (P95 Observed),563.1,0.6,1.8,0.15,716,1284
+High Stress (P95 Observed),563.1,0.6,2.0,0.05,712,1288
+High Stress (P95 Observed),563.1,0.6,2.0,0.1,751,1249
+High Stress (P95 Observed),563.1,0.6,2.0,0.15,795,1205
+High Stress (P95 Observed),563.1,0.8,1.2,0.05,570,1430
+High Stress (P95 Observed),563.1,0.8,1.2,0.1,601,1399
+High Stress (P95 Observed),563.1,0.8,1.2,0.15,636,1364
+High Stress (P95 Observed),563.1,0.8,1.5,0.05,712,1288
+High Stress (P95 Observed),563.1,0.8,1.5,0.1,751,1249
+High Stress (P95 Observed),563.1,0.8,1.5,0.15,795,1205
+High Stress (P95 Observed),563.1,0.8,1.8,0.05,854,1146
+High Stress (P95 Observed),563.1,0.8,1.8,0.1,901,1099
+High Stress (P95 Observed),563.1,0.8,1.8,0.15,954,1046
+High Stress (P95 Observed),563.1,0.8,2.0,0.05,949,1051
+High Stress (P95 Observed),563.1,0.8,2.0,0.1,1002,998
+High Stress (P95 Observed),563.1,0.8,2.0,0.15,1060,940

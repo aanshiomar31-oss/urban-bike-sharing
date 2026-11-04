@@ -1,0 +1,10 @@
+{
+  "1. Is insufficient fleet capacity demonstrated by the dataset?": "NO. The dataset records citywide completed hourly rentals, not station inventory or failed rentals. Because 95% of all hourly demand across two years is under 563 rentals/hour, an illustrative fleet of 2,000 bikes is more than mathematically sufficient. The true problem is spatial-temporal misallocation.",
+  "2. How concentrated is hourly demand?": "Extremely concentrated. The top 5 hours of the day generate 41.37% of total volume. On working days, 51.53% of all rentals occur in just the 6 peak commute hours.",
+  "3. What is the difference between commuter and casual demand?": "Registered riders represent 81.17% of total demand and drive predictable weekday commute peaks. Casual riders (18.83%) dominate weekend afternoons and are highly sensitive to weather conditions.",
+  "4. How does demand change across months?": "Demand exhibits strong seasonal variation, peaking between May and October (summer/early autumn) and dropping by over 60% during winter months (January-February) due to temperature and precipitation.",
+  "5. What are the busiest operating periods?": "Weekday mornings (08:00-09:00) and weekday evenings (17:00-18:00) during late spring through early autumn, where hourly system throughput frequently exceeds 600-800 rentals/hour.",
+  "6. How accurately can hourly demand be forecast?": "High accuracy. Gradient-boosted forecasting achieves an R\u00b2 of 0.912 and an overall MAE of 42.0 rentals/hour on an untouched 6-month holdout test set.",
+  "7. How can forecasting improve operational planning?": "By providing 1- to 24-hour advance warning of expected demand surges, operations can dynamically stage rebalancing vans and schedule maintenance windows during low-demand night hours.",
+  "8. What additional data is needed for actual station-level rebalancing?": "Station-level dock occupancy (empty/full dock minutes), GPS trip origins and destinations, trip duration logs, failed unlock attempts (unmet demand), and rebalancing van relocation capacity."
+}

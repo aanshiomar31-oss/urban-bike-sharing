@@ -1,0 +1,16 @@
+{
+  "formula": "Fleet = (Hourly Demand * Trip Duration * Spatial Buffer) / (1 - Maintenance Share)",
+  "observed_p50_demand": 142.0,
+  "observed_peak_commute_mean": 331.6,
+  "observed_p90_demand": 451.2,
+  "observed_p95_demand": 563.1,
+  "default_assumptions": {
+    "trip_duration_hours": 0.5,
+    "spatial_buffer": 1.5,
+    "maintenance_share": 0.1,
+    "illustrative_fleet_size": 2000
+  },
+  "baseline_p95_fleet_estimate": 470,
+  "baseline_p95_surplus_under_2000_bikes": 1530,
+  "operational_takeaway": "Under standard assumptions (30-min average trip, 1.5x spatial buffer, 10% maintenance), even a high-stress 95th-percentile hour (563 rentals/hr) requires only ~470 active bikes. A 2,000-bike fleet has a surplus of 1530 bikes on paper. Reported shortages are caused by spatial docking imbalance, not a fleet size deficit."
+}

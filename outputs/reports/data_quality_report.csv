@@ -1,0 +1,10 @@
+Check Item,Result,Status
+Total Records,17379,PASS
+Missing Cells,0,PASS
+Duplicate Rows,0,PASS
+Duplicate Timestamps,0,PASS
+Negative Counts,0,PASS
+Target Identity (cnt = casual + registered),Exact Match 100%,PASS
+Missing Hourly Intervals,165 out of 17544,INFO (Retained Unmodified)
+Statistical Outliers (> IQR bound),505 (2.91%),INFO (Genuine Peak Demand Preserved)
+Calendar Hour Alignment,0 mismatches,PASS

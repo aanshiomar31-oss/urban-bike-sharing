@@ -1,0 +1,228 @@
+{
+  "total_demand": 3292679,
+  "top_5_busiest_hours": [
+    17,
+    18,
+    8,
+    16,
+    19
+  ],
+  "top_5_hours_demand_share": 41.37,
+  "commute_window_hours": [
+    7,
+    8,
+    9,
+    17,
+    18,
+    19
+  ],
+  "commute_window_overall_share": 43.98,
+  "working_day_commute_share": 51.53,
+  "nonworking_day_commute_share": 26.67,
+  "rider_composition": {
+    "total_rentals": 3292679,
+    "registered_rentals": 2672662,
+    "casual_rentals": 620017,
+    "registered_percentage": 81.17,
+    "casual_percentage": 18.83,
+    "workingday_registered_percentage": 86.77,
+    "nonworkingday_casual_percentage": 31.66
+  },
+  "hourly_pareto_table": [
+    {
+      "hour": 17,
+      "demand": 336860,
+      "share": 0.10230575163871121,
+      "cum_share": 0.10230575163871121
+    },
+    {
+      "hour": 18,
+      "demand": 309772,
+      "share": 0.09407901590164118,
+      "cum_share": 0.1963847675403524
+    },
+    {
+      "hour": 8,
+      "demand": 261001,
+      "share": 0.0792670649036848,
+      "cum_share": 0.27565183244403724
+    },
+    {
+      "hour": 16,
+      "demand": 227748,
+      "share": 0.06916799360034792,
+      "cum_share": 0.34481982604438516
+    },
+    {
+      "hour": 19,
+      "demand": 226789,
+      "share": 0.06887674140115085,
+      "cum_share": 0.413696567445536
+    },
+    {
+      "hour": 13,
+      "demand": 184919,
+      "share": 0.05616065216196295,
+      "cum_share": 0.46985721960749893
+    },
+    {
+      "hour": 12,
+      "demand": 184414,
+      "share": 0.05600728160868399,
+      "cum_share": 0.5258645012161829
+    },
+    {
+      "hour": 15,
+      "demand": 183149,
+      "share": 0.055623095965321855,
+      "cum_share": 0.5814875971815048
+    },
+    {
+      "hour": 14,
+      "demand": 175652,
+      "share": 0.05334622658327763,
+      "cum_share": 0.6348338237647824
+    },
+    {
+      "hour": 20,
+      "demand": 164550,
+      "share": 0.04997450404366779,
+      "cum_share": 0.6848083278084502
+    },
+    {
+      "hour": 9,
+      "demand": 159438,
+      "share": 0.04842196885879249,
+      "cum_share": 0.7332302966672427
+    },
+    {
+      "hour": 7,
+      "demand": 154171,
+      "share": 0.04682235954370286,
+      "cum_share": 0.7800526562109455
+    },
+    {
+      "hour": 11,
+      "demand": 151320,
+      "share": 0.04595649925182503,
+      "cum_share": 0.8260091554627705
+    },
+    {
+      "hour": 10,
+      "demand": 126257,
+      "share": 0.038344764248200325,
+      "cum_share": 0.8643539197109709
+    },
+    {
+      "hour": 21,
+      "demand": 125445,
+      "share": 0.0380981565466904,
+      "cum_share": 0.9024520762576613
+    },
+    {
+      "hour": 22,
+      "demand": 95612,
+      "share": 0.029037753148727828,
+      "cum_share": 0.9314898294063891
+    },
+    {
+      "hour": 23,
+      "demand": 63941,
+      "share": 0.019419141677643036,
+      "cum_share": 0.9509089710840322
+    },
+    {
+      "hour": 6,
+      "demand": 55132,
+      "share": 0.016743812561139423,
+      "cum_share": 0.9676527836451716
+    },
+    {
+      "hour": 0,
+      "demand": 39130,
+      "share": 0.011883940098624859,
+      "cum_share": 0.9795367237437964
+    },
+    {
+      "hour": 1,
+      "demand": 24164,
+      "share": 0.007338705048381577,
+      "cum_share": 0.986875428792178
+    },
+    {
+      "hour": 2,
+      "demand": 16352,
+      "share": 0.00496616888557919,
+      "cum_share": 0.9918415976777573
+    },
+    {
+      "hour": 5,
+      "demand": 14261,
+      "share": 0.004331123683784541,
+      "cum_share": 0.9961727213615418
+    },
+    {
+      "hour": 3,
+      "demand": 8174,
+      "share": 0.002482477034657797,
+      "cum_share": 0.9986551983961995
+    },
+    {
+      "hour": 4,
+      "demand": 4428,
+      "share": 0.0013448016038004312,
+      "cum_share": 1.0
+    }
+  ],
+  "weekday_pareto_table": [
+    {
+      "weekday_code": 5,
+      "weekday_name": "Friday",
+      "demand": 487790,
+      "share": 0.14814380630483567,
+      "cum_share": 0.14814380630483567
+    },
+    {
+      "weekday_code": 4,
+      "weekday_name": "Thursday",
+      "demand": 485395,
+      "share": 0.14741643506700775,
+      "cum_share": 0.2955602413718434
+    },
+    {
+      "weekday_code": 6,
+      "weekday_name": "Saturday",
+      "demand": 477807,
+      "share": 0.14511192861496672,
+      "cum_share": 0.44067216998681014
+    },
+    {
+      "weekday_code": 3,
+      "weekday_name": "Wednesday",
+      "demand": 473048,
+      "share": 0.14366660096535375,
+      "cum_share": 0.5843387709521639
+    },
+    {
+      "weekday_code": 2,
+      "weekday_name": "Tuesday",
+      "demand": 469109,
+      "share": 0.1424703106497779,
+      "cum_share": 0.7268090816019418
+    },
+    {
+      "weekday_code": 1,
+      "weekday_name": "Monday",
+      "demand": 455503,
+      "share": 0.13833811312915714,
+      "cum_share": 0.8651471947310989
+    },
+    {
+      "weekday_code": 0,
+      "weekday_name": "Sunday",
+      "demand": 444027,
+      "share": 0.1348528052689011,
+      "cum_share": 1.0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "H1": {
+    "hypothesis": "Working days have a higher share of daily rentals in commute windows (07-09 and 17-19) than non-working days.",
+    "unit": "one complete day",
+    "workingday_mean_share": 0.5163260321340859,
+    "nonworkingday_mean_share": 0.2624630153233167,
+    "difference_percentage_points": 25.386301681076922,
+    "permutation_p_value": 4.999750012499375e-05,
+    "n_working_days": 443,
+    "n_nonworking_days": 212,
+    "note": "Commuting window includes hours 07,08,09,17,18,19; observational association, not causal."
+  },
+  "H3": {
+    "hypothesis": "Exploratory: complete-day rental totals differ on days with mean temperature >=32C versus <32C.",
+    "threshold_celsius": 32,
+    "hot_day_n": 25,
+    "other_day_n": 630,
+    "hot_day_median_demand": 5463.0,
+    "other_day_median_demand": 4678.0,
+    "mann_whitney_u": 9041.5,
+    "p_value": 0.20889845838439325,
+    "note": "Exploratory observational comparison; season and calendar confounding remain. Threshold is not causal and should be pre-specified before confirmatory testing."
+  }
+}

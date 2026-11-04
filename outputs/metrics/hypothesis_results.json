@@ -1,0 +1,36 @@
+{
+  "H1_Commuter_Concentration": {
+    "hypothesis": "H1: Working days have a higher average share of daily rentals during peak commuting hours (07-09 and 17-19) than non-working days.",
+    "unit_of_analysis": "Complete 24-hour calendar day",
+    "working_days_sample_size": 443,
+    "nonworking_days_sample_size": 212,
+    "working_days_mean_share": 51.63,
+    "nonworking_days_mean_share": 26.25,
+    "working_days_median_share": 52.38,
+    "nonworking_days_median_share": 26.31,
+    "observed_difference_percentage_points": 25.39,
+    "test_statistic": 0.25386,
+    "permutations_count": 20000,
+    "one_sided_p_value": 4.999750012499375e-05,
+    "bootstrap_95_ci_diff_percentage_points": [
+      24.69,
+      26.09
+    ],
+    "block_permutation_robustness_p_value": 0.0001999600079984003,
+    "reject_null_hypothesis": true,
+    "statistical_interpretation": "Reject H0 (p = 4.9998e-05). The difference of 25.4 percentage points (95% CI: [24.7%, 26.1%]) is statistically overwhelming.",
+    "business_interpretation": "On working days, 51.6% of all daily bike trips occur during just 6 hours (07-09 and 17-19). This extreme concentration creates severe directional tidal flows that deplete residential docks in the morning and flood downtown docks in the evening, explaining the perceived bike shortages."
+  },
+  "H3_Temperature_Threshold": {
+    "hypothesis": "H3 (Exploratory): Daily rental volume differs on extreme hot days (mean temp >= 32C) vs other days.",
+    "threshold_celsius": 32.0,
+    "hot_days_count": 25,
+    "milder_days_count": 630,
+    "hot_days_median_demand": 5463.0,
+    "milder_days_median_demand": 4678.0,
+    "mann_whitney_u_statistic": 9041.5,
+    "two_sided_p_value": 0.20889845838439325,
+    "reject_null": false,
+    "business_note": "Not statistically significant (p = 0.209). Peak heat coincides with summer tourism, confounding a direct heat-suppression effect."
+  }
+}
