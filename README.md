@@ -341,5 +341,53 @@ streamlit run app.py
 
 ---
 
+## Deployment on Streamlit Community Cloud
+
+The system is 100% cloud-ready, portable, and preconfigured for deployment on **Streamlit Community Cloud** (free tier).
+
+### Step-by-Step Deployment Protocol
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 STREAMLIT COMMUNITY CLOUD DEPLOYMENT                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. Log in to https://share.streamlit.io                                      │
+│ 2. Click 'Create app' -> 'Deploy a public app from GitHub'                  │
+│ 3. Repository: aanshiomar31-oss/urban-bike-sharing                           │
+│ 4. Branch: main                                                             │
+│ 5. Main file path: app.py                                                   │
+│ 6. App URL (optional custom subdomain): bikeshare-intelligence              │
+│ 7. Click 'Deploy!'                                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Detailed Steps:
+1. **Repository Verification:** Confirm all code and artifacts are pushed to your GitHub repository (`aanshiomar31-oss/urban-bike-sharing`).
+2. **Access Streamlit Cloud:** Go to [share.streamlit.io](https://share.streamlit.io) and authenticate using your GitHub account.
+3. **New App Setup:**
+   * Select your GitHub repository: `aanshiomar31-oss/urban-bike-sharing`
+   * Select Branch: `main`
+   * Main file path: `app.py`
+4. **Secrets Configuration (Optional):**
+   * If you wish to provide optional OpenAI or Gemini API keys, open **Advanced settings** $\rightarrow$ **Secrets**.
+   * Paste the template from `.streamlit/secrets.toml.example`.
+   * *Note: The application functions completely offline with deterministic grounded responses if left blank.*
+5. **Launch Application:** Click **Deploy**. Streamlit Cloud will read `requirements.txt`, install dependencies, load the cached models via `@st.cache_resource`, and launch the dashboard in ~1 minute.
+
+---
+
+### Cloud Troubleshooting & Operational Safeguards
+
+| Issue | Root Cause | Solution |
+| :--- | :--- | :--- |
+| **Model loading failure** | Missing `.joblib` files | Ensure `models/best_model.joblib` and `models/quantile_models.joblib` are committed to the repository (both are small, ~3MB). |
+| **Missing data files** | Missing `outputs/` or `data/` | Verify `outputs/metrics/` and `outputs/monthly_reports/` are present in Git. Run `python3 src/run_pipeline.py` before pushing. |
+| **Memory limit exceeded** | Cloud 1GB RAM constraint | The dashboard uses `@st.cache_data` and precomputed summary metrics, consuming <200MB RAM. Avoid retraining models on page load. |
+| **Port / Headless binding error** | Cloud container port clash | `.streamlit/config.toml` is preconfigured with `headless = true` and `enableCORS = true`. |
+| **API key timeout or rate limit** | External LLM unavailable | The `QueryEngine` automatically defaults to deterministic factual responses if external API keys are missing or fail. |
+
+---
+
 ## Citation
 Fanaee-T, H. and Gama, J. (2013), *"Event labeling combining ensemble detectors and background knowledge,"* Progress in Artificial Intelligence, DOI: 10.1007/s13748-013-0040-3.
+
