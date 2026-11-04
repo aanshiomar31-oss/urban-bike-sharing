@@ -26,11 +26,13 @@ def calculate_regression_metrics(y_true: pd.Series | np.ndarray, y_pred: pd.Seri
     
     overall_bias = float(np.mean(y_pred - y_true))
     underpred_pct = float(np.mean(y_pred < y_true) * 100.0)
+    wape = float(np.sum(np.abs(y_true - y_pred)) / np.sum(y_true) * 100.0) if np.sum(y_true) > 0 else 0.0
 
     res = {
         "MAE": round(mae, 2),
         "RMSE": round(rmse, 2),
         "R2": round(r2, 4),
+        "WAPE": round(wape, 2),
         "Bias": round(overall_bias, 2),
         "Underprediction_Percentage": round(underpred_pct, 1),
     }

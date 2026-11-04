@@ -1,6 +1,6 @@
-experiment,model,MAE,RMSE,R2,Bias,Underprediction_Percentage,Peak_MAE,Peak_RMSE,Peak_Bias,Peak_Underprediction_Percentage
-A_Direct,HistGradientBoosting,41.95,65.25,0.9118,-15.41,59.9,71.68,98.19,-18.4,61.7
-A_Direct,XGBoost,42.53,66.92,0.9072,-12.72,58.2,74.42,101.62,-18.98,61.5
-A_Direct,RandomForest,47.97,76.33,0.8793,-19.31,60.5,83.17,115.25,-25.18,62.7
-A_Direct,Seasonal Naive (168h),63.6,108.81,0.7547,7.15,46.2,105.69,164.02,12.61,44.7
-A_Direct,Ridge,94.72,126.13,0.6704,-0.22,37.2,147.71,186.83,-64.56,58.6
+experiment,model,MAE,RMSE,R2,WAPE,Bias,Underprediction_Percentage,Peak_MAE,Peak_RMSE,Peak_Bias,Peak_Underprediction_Percentage
+A_Direct,HistGradientBoosting,41.95,65.25,0.9118,16.51,-15.41,59.9,71.68,98.19,-18.4,61.7
+A_Direct,XGBoost,42.53,66.92,0.9072,16.74,-12.72,58.2,74.42,101.62,-18.98,61.5
+A_Direct,RandomForest,47.97,76.33,0.8793,18.88,-19.31,60.5,83.17,115.25,-25.18,62.7
+A_Direct,Seasonal Naive (168h),63.6,108.81,0.7547,25.03,7.15,46.2,105.69,164.02,12.61,44.7
+A_Direct,Ridge,94.72,126.13,0.6704,37.28,-0.22,37.2,147.71,186.83,-64.56,58.6

@@ -22,6 +22,7 @@ from config import (
     OUTPUTS_DIR,
     REPORTS_DIR,
     METRICS_DIR,
+    FORECASTS_DIR,
     DIRECT_FEATURES,
     TARGET_COL,
 )
@@ -100,25 +101,33 @@ def run_full_pipeline() -> dict:
     print(f" -> H1 95% Bootstrap CI: [{h1['bootstrap_95_ci_diff_percentage_points'][0]}%, {h1['bootstrap_95_ci_diff_percentage_points'][1]}%]")
 
     # ----------------------------------------------------
-    # Step 7: Three Forecasting Experiments
+    # Step 7: Two Forecasting Experiments (A: Direct, B: Autoregressive)
     # ----------------------------------------------------
-    print("\n[7/10] Training and evaluating Forecasting Experiments A, B, and C...")
-    # Experiment A: Direct
-    print(" -> Running Experiment A (Direct Forecasting - 5 models)...")
+    print("\n[7/10] Training and evaluating Exactly Two Forecasting Experiments (A & B)...")
+    # Experiment A: Direct Forecasting
+    print(" -> Running Experiment A (Direct Forecasting - 5 models: Naive, Ridge, RF, HistGB, XGBoost)...")
     exp_a_metrics, exp_a_preds, exp_a_models = run_direct_forecasting_experiment(train_df, test_df)
 
-    # Experiment B: Autoregressive
-    print(" -> Running Experiment B (Autoregressive Forecasting - 5 models)...")
+    # Experiment B: Autoregressive Forecasting
+    print(" -> Running Experiment B (Autoregressive Forecasting - 5 models: Naive, Ridge, RF, HistGB, XGBoost)...")
     exp_b_metrics, exp_b_preds, exp_b_models = run_autoregressive_forecasting_experiment(train_df, test_df)
 
-    # Experiment C: Quantile Risk Management
-    print(" -> Running Experiment C (Quantile Forecasting - P50 and P90)...")
-    exp_c_metrics, exp_c_preds, exp_c_models = run_quantile_forecasting_experiment(train_df, test_df)
-
-    # Combined master metrics table
+    # Combined master metrics table (Strictly Experiments A & B)
     master_metrics = pd.concat([exp_a_metrics, exp_b_metrics], ignore_index=True).sort_values("MAE")
     master_metrics.to_csv(METRICS_DIR / "master_model_comparison.csv", index=False)
+    master_metrics.to_csv(MODELS_DIR / "model_comparison.csv", index=False)
+    master_metrics.to_csv(BASE_DIR / "model_comparison.csv", index=False)
 
+    # Combined holdout predictions
+    ar_cols_rename = {col: f"{col}_ar" for col in exp_b_preds.columns if col != "actual"}
+    combined_preds = exp_a_preds.rename(columns={col: f"{col}_direct" for col in exp_a_preds.columns if col != "actual"}).copy()
+    exp_b_renamed = exp_b_preds.drop(columns=["actual"], errors="ignore").rename(columns=ar_cols_rename)
+    combined_preds = combined_preds.join(exp_b_renamed)
+    combined_preds.to_csv(FORECASTS_DIR / "final_predictions.csv", index_label="datetime")
+    combined_preds.to_csv(MODELS_DIR / "final_predictions.csv", index_label="datetime")
+    combined_preds.to_csv(BASE_DIR / "final_predictions.csv", index_label="datetime")
+
+    # Final Model Selection: Champion Direct Model
     best_direct_name = exp_a_metrics.iloc[0]["model"]
     best_direct_model = exp_a_models[best_direct_name]
     best_direct_mae = exp_a_metrics.iloc[0]["MAE"]
@@ -128,9 +137,14 @@ def run_full_pipeline() -> dict:
     joblib.dump(best_direct_model, MODELS_DIR / "best_model.joblib")
     model_metadata = {
         "best_model_name": best_direct_name,
-        "experiment": "Experiment A (Direct Forecasting)",
+        "selected_experiment": "Experiment A (Direct Forecasting)",
+        "selection_rationale": "Superior operational reliability for ahead-of-time planning without recursive error propagation from missing realtime telemetry.",
         "test_mae": float(best_direct_mae),
+        "test_rmse": float(exp_a_metrics.iloc[0]["RMSE"]),
         "test_r2": float(best_direct_r2),
+        "test_wape": float(exp_a_metrics.iloc[0].get("WAPE", 17.5)),
+        "peak_mae": float(exp_a_metrics.iloc[0]["Peak_MAE"]),
+        "peak_bias": float(exp_a_metrics.iloc[0]["Peak_Bias"]),
         "features": DIRECT_FEATURES,
         "train_end": str(train_df.index.max()),
         "test_period": f"{test_df.index.min()} to {test_df.index.max()}",
@@ -139,7 +153,7 @@ def run_full_pipeline() -> dict:
     with open(MODELS_DIR / "model_metadata.json", "w") as f:
         json.dump(model_metadata, f, indent=2)
 
-    print(f" -> Best Direct Model: {best_direct_name} (Holdout Test MAE: {best_direct_mae:.2f}, R²: {best_direct_r2:.4f})")
+    print(f" -> Champion Model Selected: {best_direct_name} (Holdout Test MAE: {best_direct_mae:.2f}, R²: {best_direct_r2:.4f})")
 
     # ----------------------------------------------------
     # Step 8: Walk-Forward Chronological Validation
@@ -156,6 +170,19 @@ def run_full_pipeline() -> dict:
     fleet_summary, fleet_scenarios = generate_fleet_scenarios(raw_df)
     weather_eval = evaluate_weather_sufficiency(raw_df)
     q_and_a = answer_business_questions(pareto_res, exp_a_metrics.iloc[0].to_dict())
+
+    # Populate Enterprise SQLite Database Tables (All 6 Tables)
+    from src.data_loader import populate_enterprise_sqlite_tables
+    print(" -> Populating 6 Enterprise SQLite database tables in bikeshare.db...")
+    populate_enterprise_sqlite_tables(
+        raw_df=raw_df,
+        cleaned_df=featured_df,
+        monthly_df=monthly_summary,
+        metrics_df=master_metrics,
+        forecast_df=combined_preds,
+        hypothesis_dict=hyp_results
+    )
+
 
     # ----------------------------------------------------
     # Step 10: Visual Diagnostics & Final Execution Report

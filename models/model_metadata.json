@@ -1,8 +1,13 @@
 {
   "best_model_name": "HistGradientBoosting",
-  "experiment": "Experiment A (Direct Forecasting)",
+  "selected_experiment": "Experiment A (Direct Forecasting)",
+  "selection_rationale": "Superior operational reliability for ahead-of-time planning without recursive error propagation from missing realtime telemetry.",
   "test_mae": 41.95,
+  "test_rmse": 65.25,
   "test_r2": 0.9118,
+  "test_wape": 16.51,
+  "peak_mae": 71.68,
+  "peak_bias": -18.4,
   "features": [
     "hour",
     "hour_sin",
@@ -50,5 +55,5 @@
   ],
   "train_end": "2012-06-30 23:00:00",
   "test_period": "2012-07-01 00:00:00 to 2012-12-31 23:00:00",
-  "timestamp_generated": "2026-11-04 12:48:22"
+  "timestamp_generated": "2026-11-04 13:31:05"
 }

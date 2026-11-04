@@ -40,3 +40,34 @@ def test_predictions_are_strictly_non_negative():
     for col in preds.columns:
         if col != "datetime":
             assert (preds[col] >= 0).all(), f"Found negative predictions in {col}"
+
+
+def test_strictly_two_forecasting_experiments_and_wape():
+    path = METRICS_DIR / "master_model_comparison.csv"
+    assert path.exists()
+    df = pd.read_csv(path)
+    assert "WAPE" in df.columns
+    unique_exps = set(df["experiment"].unique())
+    assert unique_exps == {"A_Direct", "B_Autoregressive"}, f"Unexpected experiments found: {unique_exps}"
+    assert len(df) == 10  # 5 models in Exp A + 5 models in Exp B
+
+
+def test_six_enterprise_sqlite_tables_exist():
+    import sqlite3
+    from config import SQLITE_DB_PATH
+    assert SQLITE_DB_PATH.exists()
+    with sqlite3.connect(SQLITE_DB_PATH) as conn:
+        tables = [t[0] for t in conn.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()]
+        required = [
+            "raw_hourly_data",
+            "cleaned_hourly_data",
+            "monthly_analytics",
+            "model_metrics",
+            "forecast_results",
+            "hypothesis_results"
+        ]
+        for req in required:
+            assert req in tables, f"Missing required SQLite table: {req}"
+            count = conn.execute(f"SELECT count(*) FROM {req};").fetchone()[0]
+            assert count > 0, f"SQLite table {req} is empty"
+

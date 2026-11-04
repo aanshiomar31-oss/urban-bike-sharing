@@ -1,6 +1,6 @@
 # Final Execution Report: Urban Bike-Sharing Demand Forecasting
 
-**Status:** SUCCESS | **Runtime:** 56.64s | **Dataset Rows:** 17,379
+**Status:** SUCCESS | **Runtime:** 46.77s | **Dataset Rows:** 17,379
 
 ## 1. Key Modeling Results (Experiment A - Direct Forecasting)
 - **Champion Model:** `HistGradientBoosting`

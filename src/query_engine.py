@@ -132,16 +132,16 @@ class QueryEngine:
         # ----------------------------------------------------
         # CATEGORY 4: FORECASTING ACCURACY & PEAK BIAS
         # ----------------------------------------------------
-        if any(w in q for w in ["best model", "accuracy", "mae", "underestimat", "underpredict", "peak bias", "p90", "forecast horizon", "reliable"]):
+        if any(w in q for w in ["best model", "accuracy", "mae", "underestimat", "underpredict", "peak bias", "forecast horizon", "reliable", "experiment"]):
             best_m = self.direct_metrics.iloc[0] if not self.direct_metrics.empty else {}
             best_name = best_m.get("model", "HistGradientBoosting")
             mae = best_m.get("MAE", 41.95)
-            r2 = best_m.get("R2", 0.912)
-            bias = best_m.get("Peak_Bias", -30.69)
+            r2 = best_m.get("R2", 0.9118)
+            bias = best_m.get("Peak_Bias", -18.40)
 
             chart = go.Figure(go.Bar(
-                x=["HistGradientBoosting", "XGBoost", "Random Forest", "Seasonal Baseline"],
-                y=[41.95, 45.82, 47.78, 63.60],
+                x=["Direct HistGB", "Direct XGBoost", "Direct Random Forest", "Direct Naive"],
+                y=[41.95, 42.53, 47.97, 63.60],
                 marker_color=["#10b981", "#0f52ba", "#0f52ba", "#94a3b8"]
             ))
             chart.update_layout(title="Holdout Test MAE (Lower is Better)", yaxis_title="MAE (Rentals/Hour)", height=280, margin=dict(l=30, r=20, t=40, b=30))
@@ -149,13 +149,13 @@ class QueryEngine:
             return {
                 "category": "Category 4: Forecasting Performance",
                 "intent": "forecasting_evaluation_and_bias",
-                "direct_answer": f"The champion model is {best_name}, explaining 91.2% of demand variance (R² = {r2:.3f}) with an MAE of {mae:.2f} rentals/hour.",
-                "evidence": f"During rush hours, the model exhibits a negative bias of {bias:.2f} rentals/hour due to symmetric loss functions pulling extreme peaks toward the mean.",
-                "interpretation": "A raw point forecast will under-prepare operations by ~31 bikes/hour during commute peaks. A safety buffer is mandatory.",
-                "action": "Adopt the calibrated P90 quantile forecast (+31.4 bikes/hr offset), which achieves 94.8% peak-hour empirical coverage.",
-                "limitation": "Predictions treat recorded weather as known ground truth; live deployment must ingest numerical weather forecasts.",
+                "direct_answer": f"The champion direct forecasting model is {best_name}, explaining 91.2% of demand variance (R² = {r2:.4f}) with a holdout MAE of {mae:.2f} rentals/hour.",
+                "evidence": f"During commute peak hours, the direct model exhibits an average bias of {bias:.2f} rentals/hour due to symmetric loss pulling extreme rush-hour spikes toward the conditional mean. In Experiment B (Autoregressive), 1-step ahead MAE drops to 30.80, but requires continuous real-time telemetry.",
+                "interpretation": "A raw point forecast will under-prepare operations during intense commute spikes. Operational rebalancing buffers are required during rush hour.",
+                "action": "Use the Direct HistGradientBoosting model for ahead-of-time daily schedule dispatching, adding a +35 bike operational buffer during 07-09 and 17-19 commute windows.",
+                "limitation": "Predictions treat recorded weather as known ground truth; live deployment requires numerical weather forecasts.",
                 "chart": chart,
-                "data_source": "direct_forecasting_metrics.csv & quantile_forecasting_metrics.csv"
+                "data_source": "direct_forecasting_metrics.csv & master_model_comparison.csv"
             }
 
         # ----------------------------------------------------

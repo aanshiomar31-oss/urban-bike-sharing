@@ -104,3 +104,80 @@ def save_to_sqlite(df: pd.DataFrame, table_name: str = "raw_hourly", db_path: Pa
         else:
             export_df["datetime"] = export_df.index.astype(str)
         export_df.to_sql(table_name, conn, if_exists="replace", index=False)
+
+
+def populate_enterprise_sqlite_tables(
+    raw_df: pd.DataFrame,
+    cleaned_df: pd.DataFrame,
+    monthly_df: pd.DataFrame,
+    metrics_df: pd.DataFrame,
+    forecast_df: pd.DataFrame,
+    hypothesis_dict: dict,
+    db_path: Path = SQLITE_DB_PATH
+):
+    """Populates the 6 enterprise database tables required by the 5-layer system architecture:
+    1. raw_hourly_data
+    2. cleaned_hourly_data
+    3. monthly_analytics
+    4. model_metrics
+    5. forecast_results
+    6. hypothesis_results
+    """
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Format hypothesis dictionary as DataFrame
+    hyp_rows = []
+    for k, v in hypothesis_dict.items():
+        if isinstance(v, dict):
+            hyp_rows.append({
+                "test_key": k,
+                "hypothesis": v.get("hypothesis", ""),
+                "unit_of_analysis": v.get("unit_of_analysis", ""),
+                "working_days_sample": v.get("working_days_sample_size", v.get("hot_days_count", None)),
+                "nonworking_days_sample": v.get("nonworking_days_sample_size", v.get("milder_days_count", None)),
+                "working_days_mean": v.get("working_days_mean_share", v.get("hot_days_median_demand", None)),
+                "nonworking_days_mean": v.get("nonworking_days_mean_share", v.get("milder_days_median_demand", None)),
+                "observed_difference": v.get("observed_difference_percentage_points", None),
+                "test_statistic": v.get("test_statistic", v.get("mann_whitney_u_statistic", None)),
+                "p_value": v.get("one_sided_p_value", v.get("two_sided_p_value", None)),
+                "bootstrap_ci_95": str(v.get("bootstrap_95_ci_diff_percentage_points", "")),
+                "reject_null": int(v.get("reject_null_hypothesis", v.get("reject_null", False))),
+                "statistical_interpretation": v.get("statistical_interpretation", v.get("business_note", "")),
+                "business_interpretation": v.get("business_interpretation", "")
+            })
+    hyp_df = pd.DataFrame(hyp_rows)
+
+    targets = [db_path]
+    root_db = db_path.parent.parent / "bikeshare.db"
+    if root_db != db_path:
+        targets.append(root_db)
+
+    for path in targets:
+        with sqlite3.connect(path) as conn:
+            # 1. raw_hourly_data
+            save_to_sqlite(raw_df, "raw_hourly_data", path)
+            save_to_sqlite(raw_df, "raw_hourly", path)  # backwards compatibility
+
+            # 2. cleaned_hourly_data
+            save_to_sqlite(cleaned_df, "cleaned_hourly_data", path)
+            save_to_sqlite(cleaned_df, "featured_hourly", path)  # backwards compatibility
+
+            # 3. monthly_analytics
+            monthly_export = monthly_df.copy()
+            monthly_export.to_sql("monthly_analytics", conn, if_exists="replace", index=False)
+
+            # 4. model_metrics
+            metrics_export = metrics_df.copy()
+            metrics_export.to_sql("model_metrics", conn, if_exists="replace", index=False)
+
+            # 5. forecast_results
+            forecast_export = forecast_df.copy()
+            if "datetime" not in forecast_export.columns:
+                forecast_export["datetime"] = forecast_export.index.astype(str)
+            else:
+                forecast_export["datetime"] = forecast_export["datetime"].astype(str)
+            forecast_export.to_sql("forecast_results", conn, if_exists="replace", index=False)
+
+            # 6. hypothesis_results
+            hyp_df.to_sql("hypothesis_results", conn, if_exists="replace", index=False)
+
